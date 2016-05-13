@@ -21,20 +21,23 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek:Napkin:0.1.0'
+    compile 'com.github.AleksanderMielczarek:Napkin:0.1.1'
 }
 ```
 
 ## List of annotations
 
-* qualifiers
+- qualifiers
 
 ```java
 @AppContext 
 @ActivityContext
+
+@ContextApp 
+@ContextActivity
 ```
 
-* scopes
+- scopes
 
 ```java
 @AppScope
@@ -43,8 +46,34 @@ dependencies {
 @ServiceScope
 @ReceiverScope
 @ProviderScope
+@UserScope
+@SessionScope
+
+@ScopeApp
+@ScopeActivity
+@ScopeFragment
+@ScopeService
+@ScopeReceiver
+@ScopeProvider
+@ScopeUser
+@ScopeSession
+
+@PerApp
+@PerActivity
+@PerFragment
+@PerService
+@PerReceiver
+@PerProvider
+@PerUser
+@PerSession
 ```
 
+## Changelog
+
+### 0.1.1 (2016-05-13)
+
+- add new annotations
+ 
 ## License
 
     Copyright 2016 Aleksander Mielczarek
