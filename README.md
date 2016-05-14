@@ -2,7 +2,7 @@
 
 # Napkin
 
-Common scopes and qualifiers for [Dagger 2](http://google.github.io/dagger/).
+Common scopes, qualifiers and few utilities for [Dagger 2](http://google.github.io/dagger/).
 
 ## Usage
 
@@ -21,7 +21,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek:Napkin:0.1.1'
+    compile 'com.github.AleksanderMielczarek:Napkin:0.2.0'
 }
 ```
 
@@ -68,7 +68,46 @@ dependencies {
 @PerSession
 ```
 
+## Utilities
+
+- with Napkin you have easy access to Component in Application
+
+```java
+public class MyApplication extends Application implements ComponentProvider<AppComponent> {
+
+    private AppComponent appComponent;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build();
+    }
+
+    @Override
+    public AppComponent provideComponent() {
+        return appComponent;
+    }
+
+    public static AppComponent provideAppComponent(Context context) {
+        return Napkin.provideComponent(context);
+    }
+}
+```
+
+```java
+DaggerMainComponent.builder()
+                .appComponent(MyApplication.provideAppComponent(this))
+                .build()
+                .inject(this);
+```
+                
 ## Changelog
+
+### 0.2.0 (2016-05-14)
+
+- add component provider
 
 ### 0.1.1 (2016-05-13)
 
