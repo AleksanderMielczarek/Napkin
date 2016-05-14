@@ -19,9 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        NapkinApplication napkinApplication = (NapkinApplication) getApplicationContext();
         DaggerMainComponent.builder()
-                .appComponent(napkinApplication.getAppComponent())
+                .appComponent(NapkinApplication.provideAppComponent(this))
                 .build()
                 .inject(this);
 
