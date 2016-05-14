@@ -32,6 +32,7 @@ dependencies {
 ```java
 @AppContext 
 @ActivityContext
+@RestEndpoint
 
 @ContextApp 
 @ContextActivity
@@ -108,6 +109,7 @@ DaggerMainComponent.builder()
 ### 0.2.0 (2016-05-14)
 
 - add component provider
+- add new annotation
 
 ### 0.1.1 (2016-05-13)
 
