@@ -2,6 +2,8 @@
 
 # Napkin
 
+![Logo](images/logo.png)
+
 Common scopes, qualifiers and few utilities for [Dagger 2](http://google.github.io/dagger/).
 
 ## Usage
