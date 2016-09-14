@@ -108,6 +108,10 @@ DaggerMainComponent.builder()
                 
 ## Changelog
 
+### 0.2.1 (2016-09-14)
+
+- update SDK
+
 ### 0.2.0 (2016-05-14)
 
 - add component provider
