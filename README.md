@@ -23,7 +23,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek:Napkin:0.2.0'
+    compile 'com.github.AleksanderMielczarek:Napkin:0.2.1'
 }
 ```
 
