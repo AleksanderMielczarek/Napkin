@@ -93,32 +93,29 @@ public class MyApplication extends Application implements ComponentProvider<AppC
         return appComponent;
     }
 
-    public static AppComponent provideAppComponent(Context context) {
-        return Napkin.provideComponent(context);
-    }
 }
 ```
 
 ```java
 DaggerMainComponent.builder()
-                .appComponent(MyApplication.provideAppComponent(this))
+                .appComponent(Napkin.provideComponent(context, AppComponent.class))
                 .build()
                 .inject(this);
 ```
-          
-- with [Retrolambda](https://github.com/evant/gradle-retrolambda) you can Napkin directly (no need for static method inside Application):
+   
+- in case you just need component you can use:
+
+```java
+AppComponent appComponent = Napkin.provideComponent(context, AppComponent.class);
+```
+
+- with [Retrolambda](https://github.com/evant/gradle-retrolambda) you can use Napkin directly (no need for static method inside Application):
 
 ```java
 DaggerMainComponent.builder()
                 .appComponent(Napkin.provideComponent())
                 .build()
                 .inject(this);
-```
-
-- in case you need just component you can use:
-
-```java
-AppComponent appComponent = Napkin.provideComponent(context, AppComponent.class);
 ```
 
 ## Changelog
