@@ -16,4 +16,10 @@ public class Napkin {
         ComponentProvider<T> componentProvider = (ComponentProvider<T>) applicationContext;
         return componentProvider.provideComponent();
     }
+
+    public static <T> T provideComponent(Context context, Class<T> componentClass) {
+        Context applicationContext = context.getApplicationContext();
+        ComponentProvider<T> componentProvider = (ComponentProvider<T>) applicationContext;
+        return componentProvider.provideComponent();
+    }
 }
