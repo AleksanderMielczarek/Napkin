@@ -8,12 +8,12 @@ def versionMinor = 2
 def versionFix = 1
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode versionMajor * 1000000 + versionMinor * 10000 + versionFix * 100
         versionName "${versionMajor}.${versionMinor}.${versionFix}"
     }
