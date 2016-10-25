@@ -23,7 +23,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek:Napkin:0.2.1'
+    compile 'com.github.AleksanderMielczarek:Napkin:0.3.0'
 }
 ```
 
@@ -105,8 +105,28 @@ DaggerMainComponent.builder()
                 .build()
                 .inject(this);
 ```
-                
+          
+- with [Retrolambda](https://github.com/evant/gradle-retrolambda) you can Napkin directly (no need for static method inside Application):
+
+```java
+DaggerMainComponent.builder()
+                .appComponent(Napkin.provideComponent())
+                .build()
+                .inject(this);
+```
+
+- in case you need just component you can use:
+
+```java
+AppComponent appComponent = Napkin.provideComponent(context, AppComponent.class);
+```
+
 ## Changelog
+
+### 0.3.0 (2016-09-14)
+
+- update SDK
+- add new method for retrieve component
 
 ### 0.2.1 (2016-09-14)
 
