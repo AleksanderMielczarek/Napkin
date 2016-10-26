@@ -120,7 +120,7 @@ DaggerMainComponent.builder()
 
 ## Changelog
 
-### 0.3.0 (2016-09-14)
+### 0.3.0 (2016-10-25)
 
 - update SDK
 - add new method for retrieve component
