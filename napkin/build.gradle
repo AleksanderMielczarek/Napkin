@@ -4,7 +4,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.AleksanderMielczarek'
 
 def versionMajor = 0
-def versionMinor = 3
+def versionMinor = 4
 def versionFix = 0
 
 android {

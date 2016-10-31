@@ -23,7 +23,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek:Napkin:0.3.0'
+    compile 'com.github.AleksanderMielczarek:Napkin:0.4.0'
 }
 ```
 
@@ -34,10 +34,18 @@ dependencies {
 ```java
 @AppContext 
 @ActivityContext
+@FragmentContext
+@ServiceContext
+@ReceiverContext
+@ProviderContext
 @RestEndpoint
 
 @ContextApp 
 @ContextActivity
+@ContextFragment
+@ContextService
+@ContextReceiver
+@ContextProvider
 ```
 
 - scopes
@@ -98,7 +106,7 @@ public class MyApplication extends Application implements ComponentProvider<AppC
 
 ```java
 DaggerMainComponent.builder()
-                .appComponent(Napkin.provideComponent(context, AppComponent.class))
+                .appComponent(Napkin.<AppComponent>provideComponent(context))
                 .build()
                 .inject(this);
 ```
@@ -106,7 +114,7 @@ DaggerMainComponent.builder()
 - in case you just need component you can use:
 
 ```java
-AppComponent appComponent = Napkin.provideComponent(context, AppComponent.class);
+AppComponent appComponent = Napkin.<AppComponent>provideComponent(context);
 ```
 
 - with [Retrolambda](https://github.com/evant/gradle-retrolambda) you can use:
@@ -119,6 +127,11 @@ DaggerMainComponent.builder()
 ```
 
 ## Changelog
+
+### 0.4.0 (2016-10-31)
+
+- add new annotations
+- delete method for retrieving component by Class<T>
 
 ### 0.3.0 (2016-10-25)
 
