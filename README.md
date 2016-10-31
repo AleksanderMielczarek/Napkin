@@ -109,7 +109,7 @@ DaggerMainComponent.builder()
 AppComponent appComponent = Napkin.provideComponent(context, AppComponent.class);
 ```
 
-- with [Retrolambda](https://github.com/evant/gradle-retrolambda) you can use Napkin directly (no need for static method inside Application):
+- with [Retrolambda](https://github.com/evant/gradle-retrolambda) you can use:
 
 ```java
 DaggerMainComponent.builder()
@@ -120,7 +120,7 @@ DaggerMainComponent.builder()
 
 ## Changelog
 
-### 0.3.0 (2016-09-14)
+### 0.3.0 (2016-10-25)
 
 - update SDK
 - add new method for retrieve component
