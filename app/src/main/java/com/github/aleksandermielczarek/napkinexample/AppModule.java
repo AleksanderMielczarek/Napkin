@@ -2,9 +2,6 @@ package com.github.aleksandermielczarek.napkinexample;
 
 import android.content.Context;
 
-import com.github.aleksandermielczarek.napkin.qualifier.AppContext;
-import com.github.aleksandermielczarek.napkin.scope.AppScope;
-
 import dagger.Module;
 import dagger.Provides;
 

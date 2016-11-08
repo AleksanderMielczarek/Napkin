@@ -1,1 +1,1 @@
-include ':napkin', ':app'
+include ':napkin', ':app', ':qualifier', ':qualifier-inverse', ':scope', ':scope-per', ':scope-inverse', ':module', ':module-qualifier-inverse', ':module-scope-inverse', ':module-scope-inverse-qualifier-inverse', ':module-scope-per', ':module-scope-per-qualifier-inverse'

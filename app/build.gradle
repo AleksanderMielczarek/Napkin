@@ -37,4 +37,6 @@ dependencies {
     compile "com.google.dagger:dagger:$daggerVersion"
     apt "com.google.dagger:dagger-compiler:$daggerVersion"
     compile project(':napkin')
+    compile project(':scope')
+    compile project(':qualifier')
 }

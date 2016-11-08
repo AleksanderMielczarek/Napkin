@@ -1,7 +1,5 @@
 package com.github.aleksandermielczarek.napkinexample;
 
-import com.github.aleksandermielczarek.napkin.scope.AppScope;
-
 import dagger.Component;
 
 /**
