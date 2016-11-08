@@ -3,19 +3,16 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.AleksanderMielczarek'
 
-def versionMajor = 0
-def versionMinor = 4
-def versionFix = 0
-
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0"
+    compileSdkVersion sdkVersion
+    buildToolsVersion buildToolsVersionVersion
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion minSdkVersionVersion
+        targetSdkVersion sdkVersion
         versionCode versionMajor * 1000000 + versionMinor * 10000 + versionFix * 100
         versionName "${versionMajor}.${versionMinor}.${versionFix}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -27,6 +24,13 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    provided 'javax.inject:javax.inject:1'
+
+    //test
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$espressoCoreVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile "junit:junit:$junitVersion"
+
+    //dagger
+    compile "com.google.dagger:dagger:$daggerVersion"
 }

@@ -1,0 +1,19 @@
+ext {
+    versionMajor = 0
+    versionMinor = 4
+    versionFix = 0
+
+    minSdkVersionVersion = 16
+    sdkVersion = 25
+    buildToolsVersionVersion = "25.0.0"
+
+    toolsBuildGradleVersion = '2.2.2'
+    androidAptVersion = '1.8'
+    gradleVersionsPluginVersion = '0.13.0'
+    androidMavenGradlePluginVersion = '1.5'
+
+    espressoCoreVersion = '2.2.2'
+    junitVersion = '4.12'
+    supportLibraryVersion = '25.0.0'
+    daggerVersion = '2.7'
+}
