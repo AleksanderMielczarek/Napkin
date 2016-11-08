@@ -31,6 +31,9 @@ dependencies {
     })
     testCompile "junit:junit:$junitVersion"
 
+    //support
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+
     //dagger
     compile "com.google.dagger:dagger:$daggerVersion"
 }
