@@ -40,4 +40,5 @@ dependencies {
     compile project(':napkin')
     compile project(':scope-per')
     compile project(':qualifier-inverse')
+    apt "com.google.dagger:dagger-compiler:$daggerVersion"
 }
