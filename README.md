@@ -19,67 +19,21 @@ allprojects {
 }
 ```
 
+## Core
+
 Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek:Napkin:0.4.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:napkin:0.5.0'
 }
 ```
 
-## List of annotations
-
-- qualifiers
+- common qualifiers
 
 ```java
-@AppContext 
-@ActivityContext
-@FragmentContext
-@ServiceContext
-@ReceiverContext
-@ProviderContext
 @RestEndpoint
-
-@ContextApp 
-@ContextActivity
-@ContextFragment
-@ContextService
-@ContextReceiver
-@ContextProvider
 ```
-
-- scopes
-
-```java
-@AppScope
-@ActivityScope
-@FragmentScope
-@ServiceScope
-@ReceiverScope
-@ProviderScope
-@UserScope
-@SessionScope
-
-@ScopeApp
-@ScopeActivity
-@ScopeFragment
-@ScopeService
-@ScopeReceiver
-@ScopeProvider
-@ScopeUser
-@ScopeSession
-
-@PerApp
-@PerActivity
-@PerFragment
-@PerService
-@PerReceiver
-@PerProvider
-@PerUser
-@PerSession
-```
-
-## Utilities
 
 - with Napkin you have easy access to Component in Application
 
@@ -126,7 +80,316 @@ DaggerMainComponent.builder()
                 .inject(this);
 ```
 
+## Scopes
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:scope:0.5.0'
+}
+```
+
+- list of annotations
+
+```java
+@AppScope
+@ActivityScope
+@FragmentScope
+@ServiceScope
+@ReceiverScope
+@ProviderScope
+@UserScope
+@SessionScope
+```
+
+## Qualifiers
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:qualifier:0.5.0'
+}
+```
+
+- list of annotations
+
+```java
+@AppContext 
+@ActivityContext
+@FragmentContext
+@ServiceContext
+@ReceiverContext
+@ProviderContext
+```
+
+## Modules
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:module:0.5.0'
+}
+```
+
+- list of modules
+
+```java
+@Module
+@AppScope
+public class AppModule {
+
+    private final Application application;
+
+    public AppModule(Application application) {
+        this.application = application;
+    }
+
+    @Provides
+    @AppScope
+    Application provideApplication() {
+        return application;
+    }
+
+    @Provides
+    @AppScope
+    @AppContext
+    Context provideContext() {
+        return application;
+    }
+}
+```
+
+```java
+@Module
+@ActivityScope
+public class ActivityModule {
+
+    private final AppCompatActivity activity;
+
+    public ActivityModule(AppCompatActivity activity) {
+        this.activity = activity;
+    }
+
+    @Provides
+    @ActivityScope
+    AppCompatActivity provideActivity() {
+        return activity;
+    }
+
+    @Provides
+    @ActivityScope
+    @ActivityContext
+    Context provideContext() {
+        return activity;
+    }
+}
+```
+
+```java
+@Module
+@FragmentScope
+public class FragmentModule {
+
+    private final Fragment fragment;
+
+    public FragmentModule(Fragment fragment) {
+        this.fragment = fragment;
+    }
+
+    @Provides
+    @FragmentScope
+    Fragment provideFragment() {
+        return fragment;
+    }
+}
+```
+
+```java
+@Module
+@ServiceScope
+public class ServiceModule {
+
+    private final Context context;
+
+    public ServiceModule(Context context) {
+        this.context = context;
+    }
+
+    @Provides
+    @ServiceScope
+    @ServiceContext
+    Context provideContext() {
+        return context;
+    }
+}
+```
+
+```java
+@Module
+@ReceiverScope
+public class ReceiverModule {
+
+    private final Context context;
+
+    public ReceiverModule(Context context) {
+        this.context = context;
+    }
+
+    @Provides
+    @ReceiverScope
+    @ReceiverContext
+    Context provideContext() {
+        return context;
+    }
+}
+```
+
+```java
+@Module
+@ProviderScope
+public class ProviderModule {
+
+    private final Context context;
+
+    public ProviderModule(Context context) {
+        this.context = context;
+    }
+
+    @Provides
+    @ProviderScope
+    @ProviderContext
+    Context provideContext() {
+        return context;
+    }
+}
+```
+
+## Scopes with prefix Per
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:scope-per:0.5.0'
+}
+```
+
+- list of annotations
+
+```java
+@PerApp
+@PerActivity
+@PerFragment
+@PerService
+@PerReceiver
+@PerProvider
+@PerUser
+@PerSession
+```
+
+## Scopes with inverted names
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:scope-inverse:0.5.0'
+}
+```
+
+- list of annotations
+
+```java
+@ScopeApp
+@ScopeActivity
+@ScopeFragment
+@ScopeService
+@ScopeReceiver
+@ScopeProvider
+@ScopeUser
+@ScopeSession
+```
+
+## Qualifiers with inverted names
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:qualifier-inverse:0.5.0'
+}
+```
+
+- list of annotations
+
+```java
+@ContextApp 
+@ContextActivity
+@ContextFragment
+@ContextService
+@ContextReceiver
+@ContextProvider
+```
+
+## Modules with scopes with prefix Per
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per:0.5.0'
+}
+```
+
+## Modules with scopes with inverted names
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse:0.5.0'
+}
+```
+
+## Modules with qualifiers with inverted names
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:module-qualifier-inverse:0.5.0'
+}
+```
+
+## Modules with scopes with prefix Per and qualifiers with inverted names
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per-qualifier-inverse:0.5.0'
+}
+```
+
+## Modules with scopes with inverted names and qualifiers with inverted names
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse-qualifier-inverse:0.5.0'
+}
+```
+
 ## Changelog
+
+### 0.5.0 (2016-11-11)
+
+- split into sub projects 
+- add modules
 
 ### 0.4.0 (2016-10-31)
 
