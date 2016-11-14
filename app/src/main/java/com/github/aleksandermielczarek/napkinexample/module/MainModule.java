@@ -1,5 +1,8 @@
 package com.github.aleksandermielczarek.napkinexample.module;
 
+import android.app.Application;
+
+import com.github.aleksandermielczarek.napkin.module.AppModule;
 import com.github.aleksandermielczarek.napkin.scope.AppScope;
 
 import dagger.Module;
@@ -10,7 +13,11 @@ import dagger.Provides;
  */
 @Module
 @AppScope
-public class MainModule {
+public class MainModule extends AppModule {
+
+    public MainModule(Application application) {
+        super(application);
+    }
 
     @Provides
     String provideNapkinString() {

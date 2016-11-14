@@ -3,9 +3,9 @@ package com.github.aleksandermielczarek.napkinexample;
 import android.app.Application;
 
 import com.github.aleksandermielczarek.napkin.ComponentProvider;
-import com.github.aleksandermielczarek.napkin.module.AppModule;
 import com.github.aleksandermielczarek.napkinexample.component.AppComponent;
 import com.github.aleksandermielczarek.napkinexample.component.DaggerAppComponent;
+import com.github.aleksandermielczarek.napkinexample.module.MainModule;
 
 /**
  * Created by Aleksander Mielczarek on 13.05.2016.
@@ -18,7 +18,7 @@ public class NapkinApplication extends Application implements ComponentProvider<
     public void onCreate() {
         super.onCreate();
         appComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(this))
+                .mainModule(new MainModule(this))
                 .build();
     }
 
