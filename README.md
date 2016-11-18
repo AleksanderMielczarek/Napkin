@@ -118,6 +118,94 @@ Component component = Napkin.<Component>provideActivityComponent(fragment);
 Component component = Napkin.<Component>provideActivityComponent(view);
 ```
 
+- you can use Napkin with sub components:
+
+```java
+@AppScope
+@Component(modules = AppModule.class)
+public interface AppComponent {
+   
+    ActivityComponent with(ActivityModule activityModule);
+ 
+}
+```
+
+```java
+@ActivityScope
+@Subcomponent(modules = ActivityModule.class)
+public interface ActivityComponent {
+
+    FragmentComponent with(FragmentModule fragmentModule);
+
+    void inject(MyActivity myActivity);
+}
+```
+
+```java
+@FragmentScope
+@Subcomponent(modules = FragmentModule.class)
+public interface FragmentComponent {
+
+    void inject(MyFragment myFragment);
+}
+```
+
+```java
+public class MyApplication extends Application implements ComponentProvider<AppComponent> {
+  
+    private AppComponent appComponent;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+   
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build();      
+    }
+
+    @Override
+    public AppComponent provideComponent() {
+        return appComponent;
+    }
+}
+```
+
+```java
+public class MyActivity extends AppCompatActivity implements ComponentProvider<ActivityComponent> {
+  
+    private ActivityComponent activityComponent;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        activityComponent = Napkin.<AppComponent>provideAppComponent(this)
+                .with(new ActivityModule(this));
+        activityComponent.inject(this);
+    }
+
+    @Override
+    public ActivityComponent provideComponent() {
+        return activityComponent;
+    }
+}
+```
+
+```java
+public class MyFragment extends Fragment {
+ 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Napkin.<ActivityComponent>provideActivityComponent(this)
+                .with(new FragmentModule(this))
+                .inject(this);
+    }   
+}
+```
+
 ## Scopes
 
 Add the dependency
