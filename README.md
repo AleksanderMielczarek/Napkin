@@ -25,7 +25,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:napkin:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:napkin:0.6.0'
 }
 ```
 
@@ -60,7 +60,7 @@ public class MyApplication extends Application implements ComponentProvider<AppC
 
 ```java
 DaggerMainComponent.builder()
-                .appComponent(Napkin.<AppComponent>provideComponent(context))
+                .appComponent(Napkin.<AppComponent>provideAppComponent(context))
                 .build()
                 .inject(this);
 ```
@@ -68,16 +68,54 @@ DaggerMainComponent.builder()
 - in case you just need component you can use:
 
 ```java
-AppComponent appComponent = Napkin.<AppComponent>provideComponent(context);
+AppComponent appComponent = Napkin.<AppComponent>provideAppComponent(context);
 ```
 
 - with [Retrolambda](https://github.com/evant/gradle-retrolambda) you can use:
 
 ```java
 DaggerMainComponent.builder()
-                .appComponent(Napkin.provideComponent())
+                .appComponent(Napkin.provideAppComponent(context))
                 .build()
                 .inject(this);
+                
+AppComponent appComponent = Napkin.provideAppComponent(context);
+```
+
+- access component stored in any class implementing ComponentProvider<T>
+
+```java
+Component component = Napkin.<Component>provideComponent(object);
+```
+
+- access component stored in Application class implementing ComponentProvider<T> by any Context
+
+```java
+Component component = Napkin.<Component>provideAppComponent(context);
+```
+
+- access component stored in Application class implementing ComponentProvider<T> by Fragment
+
+```java
+Component component = Napkin.<Component>provideAppComponent(fragment);
+```
+
+- access component stored in Application class implementing ComponentProvider<T> by View
+
+```java
+Component component = Napkin.<Component>provideAppComponent(view);
+```
+
+- access component stored in Activity class implementing ComponentProvider<T> by Fragment
+
+```java
+Component component = Napkin.<Component>provideActivityComponent(fragment);
+```
+
+- access component stored in Activity class implementing ComponentProvider<T> by View
+
+```java
+Component component = Napkin.<Component>provideActivityComponent(view);
 ```
 
 ## Scopes
@@ -86,7 +124,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:scope:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:scope:0.6.0'
 }
 ```
 
@@ -109,7 +147,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:qualifier:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:qualifier:0.6.0'
 }
 ```
 
@@ -130,33 +168,35 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module:0.6.0'
 }
 ```
+
+Napkin modules can be override to add custom methods.
 
 - list of modules
 
 ```java
 @Module
 @AppScope
-public class AppModule {
+public class NapkinAppModule extends AbstractNapkinAppModule {
 
-    private final Application application;
-
-    public AppModule(Application application) {
-        this.application = application;
+    public NapkinAppModule(Application application) {
+        super(application);
     }
 
+    @Override
     @Provides
     @AppScope
-    Application provideApplication() {
+    public Application provideApplication() {
         return application;
     }
 
+    @Override
     @Provides
     @AppScope
     @AppContext
-    Context provideContext() {
+    public Context provideContext() {
         return application;
     }
 }
@@ -165,24 +205,24 @@ public class AppModule {
 ```java
 @Module
 @ActivityScope
-public class ActivityModule {
+public class NapkinActivityModule extends AbstractNapkinActivityModule {
 
-    private final AppCompatActivity activity;
-
-    public ActivityModule(AppCompatActivity activity) {
-        this.activity = activity;
+    public NapkinActivityModule(AppCompatActivity activity) {
+        super(activity);
     }
 
+    @Override
     @Provides
     @ActivityScope
-    AppCompatActivity provideActivity() {
+    public AppCompatActivity provideActivity() {
         return activity;
     }
 
+    @Override
     @Provides
     @ActivityScope
     @ActivityContext
-    Context provideContext() {
+    public Context provideContext() {
         return activity;
     }
 }
@@ -191,57 +231,56 @@ public class ActivityModule {
 ```java
 @Module
 @FragmentScope
-public class FragmentModule {
+public class NapkinFragmentModule extends AbstractNapkinFragmentModule {
 
-    private final Fragment fragment;
-
-    public FragmentModule(Fragment fragment) {
-        this.fragment = fragment;
+    public NapkinFragmentModule(Fragment fragment) {
+        super(fragment);
     }
 
+    @Override
     @Provides
     @FragmentScope
-    Fragment provideFragment() {
+    public Fragment provideFragment() {
         return fragment;
     }
+
 }
 ```
 
 ```java
 @Module
 @ServiceScope
-public class ServiceModule {
+public class NapkinServiceModule extends AbstractNapkinServiceModule {
 
-    private final Context context;
-
-    public ServiceModule(Context context) {
-        this.context = context;
+    public NapkinServiceModule(Context context) {
+        super(context);
     }
 
+    @Override
     @Provides
     @ServiceScope
     @ServiceContext
-    Context provideContext() {
+    public Context provideContext() {
         return context;
     }
 }
+
 ```
 
 ```java
 @Module
 @ReceiverScope
-public class ReceiverModule {
+public class NapkinReceiverModule extends AbstractNapkinReceiverModule {
 
-    private final Context context;
-
-    public ReceiverModule(Context context) {
-        this.context = context;
+    public NapkinReceiverModule(Context context) {
+        super(context);
     }
 
+    @Override
     @Provides
     @ReceiverScope
     @ReceiverContext
-    Context provideContext() {
+    public Context provideContext() {
         return context;
     }
 }
@@ -250,18 +289,17 @@ public class ReceiverModule {
 ```java
 @Module
 @ProviderScope
-public class ProviderModule {
+public class NapkinProviderModule extends AbstractNapkinProviderModule {
 
-    private final Context context;
-
-    public ProviderModule(Context context) {
-        this.context = context;
+    public NapkinProviderModule(Context context) {
+        super(context);
     }
 
+    @Override
     @Provides
     @ProviderScope
     @ProviderContext
-    Context provideContext() {
+    public Context provideContext() {
         return context;
     }
 }
@@ -273,7 +311,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:scope-per:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:scope-per:0.6.0'
 }
 ```
 
@@ -296,7 +334,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:scope-inverse:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:scope-inverse:0.6.0'
 }
 ```
 
@@ -319,7 +357,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:qualifier-inverse:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:qualifier-inverse:0.6.0'
 }
 ```
 
@@ -340,7 +378,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per:0.6.0'
 }
 ```
 
@@ -350,7 +388,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse:0.6.0'
 }
 ```
 
@@ -360,7 +398,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-qualifier-inverse:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-qualifier-inverse:0.6.0'
 }
 ```
 
@@ -370,7 +408,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per-qualifier-inverse:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per-qualifier-inverse:0.6.0'
 }
 ```
 
@@ -380,11 +418,16 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse-qualifier-inverse:0.5.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse-qualifier-inverse:0.6.0'
 }
 ```
 
 ## Changelog
+
+### 0.6.0 (2016-11-18)
+
+- rename modules 
+- changes in methods for providing component
 
 ### 0.5.0 (2016-11-11)
 
