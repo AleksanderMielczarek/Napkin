@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.github.aleksandermielczarek.napkin.module.AppModule;
 import com.github.aleksandermielczarek.napkin.scope.AppScope;
+import com.github.aleksandermielczarek.napkinexample.qualifier.AppString;
 
 import dagger.Module;
 import dagger.Provides;
@@ -20,8 +21,9 @@ public class MainModule extends AppModule {
     }
 
     @Provides
+    @AppString
     String provideNapkinString() {
-        return "Hello Napkin!";
+        return "Hello Napkin in App!";
     }
 
 }

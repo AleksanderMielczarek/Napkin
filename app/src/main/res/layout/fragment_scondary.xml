@@ -5,46 +5,34 @@
 
         <variable
             name="viewModel"
-            type="com.github.aleksandermielczarek.napkinexample.ui.MainViewModel"/>
+            type="com.github.aleksandermielczarek.napkinexample.ui.SecondaryViewModel"/>
     </data>
 
     <LinearLayout
-        android:layout_margin="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Activity"
-            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@{viewModel.napkinString}"
-            android:textSize="34sp"/>
+            android:textSize="24sp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@{viewModel.napkinString2}"
-            android:textSize="34sp"/>
+            android:textSize="24sp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fragment"
-            android:textStyle="bold"/>
-
-        <fragment
-            android:id="@+id/secondaryFragment"
-            android:name="com.github.aleksandermielczarek.napkinexample.ui.SecondaryFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:gravity="center"
+            android:text="@{viewModel.napkinString3}"
+            android:textSize="24sp"/>
 
     </LinearLayout>
 
