@@ -12,7 +12,7 @@ public class Napkin {
 
     }
 
-    private static <T> T provideComponent(Object object) {
+    public static <T> T provideComponent(Object object) {
         ComponentProvider<T> componentProvider = (ComponentProvider<T>) object;
         return componentProvider.provideComponent();
     }
