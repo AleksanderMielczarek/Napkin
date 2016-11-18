@@ -2,6 +2,7 @@ package com.github.aleksandermielczarek.napkinexample.module;
 
 import android.support.v7.app.AppCompatActivity;
 
+import com.github.aleksandermielczarek.napkin.module.NapkinActivityModule;
 import com.github.aleksandermielczarek.napkin.scope.ActivityScope;
 import com.github.aleksandermielczarek.napkinexample.qualifier.ActivityString;
 
@@ -13,7 +14,7 @@ import dagger.Provides;
  */
 @Module
 @ActivityScope
-public class ActivityModule extends com.github.aleksandermielczarek.napkin.module.ActivityModule {
+public class ActivityModule extends NapkinActivityModule {
 
     public ActivityModule(AppCompatActivity activity) {
         super(activity);

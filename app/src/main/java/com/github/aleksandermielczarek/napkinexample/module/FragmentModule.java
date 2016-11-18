@@ -2,6 +2,7 @@ package com.github.aleksandermielczarek.napkinexample.module;
 
 import android.support.v4.app.Fragment;
 
+import com.github.aleksandermielczarek.napkin.module.NapkinFragmentModule;
 import com.github.aleksandermielczarek.napkin.scope.FragmentScope;
 import com.github.aleksandermielczarek.napkinexample.qualifier.FragmentString;
 
@@ -13,8 +14,7 @@ import dagger.Provides;
  */
 @Module
 @FragmentScope
-public class FragmentModule extends com.github.aleksandermielczarek.napkin.module.FragmentModule {
-
+public class FragmentModule extends NapkinFragmentModule {
 
     public FragmentModule(Fragment fragment) {
         super(fragment);
