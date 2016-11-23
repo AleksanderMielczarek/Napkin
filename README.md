@@ -1,4 +1,5 @@
 [![](https://jitpack.io/v/AleksanderMielczarek/Napkin.svg)](https://jitpack.io/#AleksanderMielczarek/Napkin)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Napkin-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4676)
 
 # Napkin
 
