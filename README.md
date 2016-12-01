@@ -26,7 +26,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:napkin:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:napkin:0.6.1'
 }
 ```
 
@@ -213,7 +213,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:scope:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:scope:0.6.1'
 }
 ```
 
@@ -236,7 +236,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:qualifier:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:qualifier:0.6.1'
 }
 ```
 
@@ -257,7 +257,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module:0.6.1'
 }
 ```
 
@@ -400,7 +400,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:scope-per:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:scope-per:0.6.1'
 }
 ```
 
@@ -423,7 +423,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:scope-inverse:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:scope-inverse:0.6.1'
 }
 ```
 
@@ -446,7 +446,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:qualifier-inverse:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:qualifier-inverse:0.6.1'
 }
 ```
 
@@ -467,7 +467,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per:0.6.1'
 }
 ```
 
@@ -477,7 +477,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse:0.6.1'
 }
 ```
 
@@ -487,7 +487,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-qualifier-inverse:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-qualifier-inverse:0.6.1'
 }
 ```
 
@@ -497,7 +497,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per-qualifier-inverse:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per-qualifier-inverse:0.6.1'
 }
 ```
 
@@ -507,11 +507,15 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse-qualifier-inverse:0.6.0'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse-qualifier-inverse:0.6.1'
 }
 ```
 
 ## Changelog
+
+### 0.6.1 (2016-12-01)
+
+- update dependencies
 
 ### 0.6.0 (2016-11-18)
 
