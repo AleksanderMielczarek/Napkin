@@ -6,6 +6,7 @@
 ![Logo](images/logo.png)
 
 Common scopes, qualifiers and few utilities for [Dagger 2](http://google.github.io/dagger/).
+Scopes and qualifiers cane be used also with [toothpick](https://github.com/stephanenicolas/toothpick).
 
 ## Usage
 
@@ -26,14 +27,8 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:napkin:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:napkin:0.7.0'
 }
-```
-
-- common qualifiers
-
-```java
-@RestEndpoint
 ```
 
 - with Napkin you have easy access to Component in Application
@@ -207,13 +202,29 @@ public class MyFragment extends Fragment {
 }
 ```
 
+## Common qualifiers
+
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.Napkin:qualifier-common:0.7.0'
+}
+```
+
+- list of annotations
+
+```java
+@RestEndpoint
+```
+
 ## Scopes
 
 Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:scope:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:scope:0.7.0'
 }
 ```
 
@@ -236,7 +247,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:qualifier:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:qualifier:0.7.0'
 }
 ```
 
@@ -257,7 +268,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:module:0.7.0'
 }
 ```
 
@@ -400,7 +411,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:scope-per:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:scope-per:0.7.0'
 }
 ```
 
@@ -423,7 +434,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:scope-inverse:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:scope-inverse:0.7.0'
 }
 ```
 
@@ -446,7 +457,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:qualifier-inverse:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:qualifier-inverse:0.7.0'
 }
 ```
 
@@ -467,7 +478,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per:0.7.0'
 }
 ```
 
@@ -477,7 +488,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse:0.7.0'
 }
 ```
 
@@ -487,7 +498,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-qualifier-inverse:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-qualifier-inverse:0.7.0'
 }
 ```
 
@@ -497,7 +508,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per-qualifier-inverse:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-per-qualifier-inverse:0.7.0'
 }
 ```
 
@@ -507,11 +518,17 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse-qualifier-inverse:0.6.1'
+    compile 'com.github.AleksanderMielczarek.Napkin:module-scope-inverse-qualifier-inverse:0.7.0'
 }
 ```
 
 ## Changelog
+
+### 0.7.0 (2017-01-07)
+
+- remove Dagger 2 dependency from scopes and qualifiers
+- move common qualifiers to separate sub project
+- update dependencies
 
 ### 0.6.1 (2016-12-01)
 
