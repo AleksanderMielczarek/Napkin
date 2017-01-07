@@ -16,4 +16,5 @@ ext {
     junitVersion = '4.12'
     supportLibraryVersion = '25.1.0'
     daggerVersion = '2.8'
+    injectVersion = '1'
 }

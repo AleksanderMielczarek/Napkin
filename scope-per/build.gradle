@@ -9,6 +9,6 @@ targetCompatibility = "1.7"
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    //dagger
-    compile "com.google.dagger:dagger:$daggerVersion"
+    //jsr-330
+    compileOnly "javax.inject:javax.inject:$injectVersion"
 }
