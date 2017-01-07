@@ -14,6 +14,6 @@ ext {
 
     espressoCoreVersion = '2.2.2'
     junitVersion = '4.12'
-    supportLibraryVersion = '25.0.1'
+    supportLibraryVersion = '25.1.0'
     daggerVersion = '2.8'
 }
