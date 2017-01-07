@@ -6,7 +6,7 @@
 ![Logo](images/logo.png)
 
 Common scopes, qualifiers and few utilities for [Dagger 2](http://google.github.io/dagger/).
-Scopes and qualifiers cane be used also with [toothpick](https://github.com/stephanenicolas/toothpick).
+Scopes and qualifiers can be used also with [toothpick](https://github.com/stephanenicolas/toothpick).
 
 ## Usage
 
