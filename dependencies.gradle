@@ -5,16 +5,15 @@ ext {
 
     minSdkVersionVersion = 16
     sdkVersion = 25
-    buildToolsVersionVersion = "25.0.1"
+    buildToolsVersionVersion = "25.0.2"
 
-    toolsBuildGradleVersion = '2.2.2'
-    androidAptVersion = '1.8'
-    gradleVersionsPluginVersion = '0.13.0'
+    toolsBuildGradleVersion = '2.3.0'
+    gradleVersionsPluginVersion = '0.14.0'
     androidMavenGradlePluginVersion = '1.5'
 
     espressoCoreVersion = '2.2.2'
     junitVersion = '4.12'
-    supportLibraryVersion = '25.1.0'
-    daggerVersion = '2.8'
+    supportLibraryVersion = '25.2.0'
+    daggerVersion = '2.9'
     injectVersion = '1'
 }

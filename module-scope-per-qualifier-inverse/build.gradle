@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'android-apt'
 
 group = 'com.github.AleksanderMielczarek'
 
@@ -39,5 +38,5 @@ dependencies {
     compile project(':napkin')
     compile project(':scope-per')
     compile project(':qualifier-inverse')
-    apt "com.google.dagger:dagger-compiler:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
 }
